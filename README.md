@@ -4,6 +4,16 @@
 
 **[下载 Windows 完整包](https://github.com/endlessmaybe/natpair/releases/latest) · [使用说明](docs/USER_GUIDE.md) · [当前功能与优点](docs/FEATURES.md) · [协调服务部署](docs/SERVER_SETUP.md)**
 
+## 网络与使用提醒
+
+- **移动 Wi-Fi：** 公网 IPv4 / 端口映射不稳定时，不建议 IPv4 打洞，优先已验证的 IPv6 原生直连。
+- **星形房间：** 房主最好有公网 IPv6；玩家也需要可用公网 IPv6，才能走这一原生路径。
+- **全员两两互联：** 移动 Wi-Fi 最好别加入 IPv4 辅助打洞，避免影响多对连接。
+- **使用前关闭防火墙、杀毒软件和代理软件。** 接入模式所需的 Tailscale 保持运行；使用结束后恢复安全防护。
+- 联网时的 UDP 发包可能暂时导致网络连接不畅，提前保存工作并避开重要任务。
+
+本软件以较大量 UDP 探测尝试打通、再通过保活维持连接，主要面向公网 IPv4 出口相对稳定的家庭大内网。请事先了解所在省份及运营商的 UDP 策略；因运营商封锁、限速或策略限制导致的问题，开发者不对此负责。完整说明见 [网络选择与免责声明](docs/NETWORK_AND_DISCLAIMER.md)。
+
 ## 当前版本
 
 | 项目 | 说明 |
@@ -17,7 +27,7 @@
 | 房间上限 | 8 人，包含自己 / 房主 |
 | 当前新增功能 | MC 星形房间、房主游戏地址自动公布、预算用满后的有限复测 |
 
-Mesh 1.2.0 是当前多人版本。Tail 1.0.18 是此前双人版本；两条产品版本号不同，不能当作同一条版本序列比较。旧版验证脚本中的历史名称也不代表当前 GUI 版本。
+本仓库提供当前 Mesh 1.2.0 源码与测试，不附带旧版本验证脚本。
 
 **公开包中的 `config.json` 是模板。** 使用前，需要管理员提供当前协调服务配置，或自行部署协调服务。真实共享密钥、私人服务器地址和个人诊断记录没有写入公开包。EXE、驱动和运行库保持原发布内容。
 
@@ -72,6 +82,6 @@ Minecraft“开放到局域网”使用当次游戏显示的端口。软件不�
 
 GUI 入口：`meshapp.py`。多人客户端：`meshclient.py`。配对调度：`meshplan.py`。Tailscale 接入：`meshtail.py` / `tailbridge.py`。协调服务：`meshserver.py`。共存保护：`coexistguard.py`。加密传输：`transport.py`。
 
-源码运行与打包见 [开发说明](docs/DEVELOPMENT.md)。发布检查见 [验证记录](docs/VALIDATION.md)。原始发布说明和去除个人信息的验证摘要保存在 `docs/`。
+源码运行与打包见 [开发说明](docs/DEVELOPMENT.md)。发布检查见 [验证记录](docs/VALIDATION.md)。历史测试与重复发布摘要已精简，仅保留当前使用、功能、部署、开发和验证说明。
 
 WinDivert 的许可和对应源码保留在 `driver/`。NATPair 自身源码未在本次整理中新增许可证授权。

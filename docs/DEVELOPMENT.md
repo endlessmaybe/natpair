@@ -39,6 +39,8 @@ python -m PyInstaller --noconfirm NATPairMesh.spec
 
 PyInstaller 输出整套目录。分发时补上有效配置或明确标记的模板，并保留全部 `_internal` 与驱动许可。不要只分发 EXE。
 
+公开仓库保留当前四组 Mesh 测试，覆盖多人、共存、身份恢复和 MC 星形；共享本地回环服务在 `test_support.py`。旧版整套回归和独立 GUI / 二进制验证脚本不再随公开源码分发。
+
 ## 关键模块
 
 | 文件 | 用途 |
