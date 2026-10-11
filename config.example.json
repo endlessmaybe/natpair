@@ -1,0 +1,55 @@
+{
+  "host": "coord.example.invalid",
+  "port": 29470,
+  "pin": "0000000000000000000000000000000000000000000000000000000000000000",
+  "access": "0000000000000000000000000000000000000000000000000000000000000000",
+  "lab_udp_base": 39801,
+  "lab_control_port": 39810,
+  "fast_center_search": true,
+  "probe_rate": 80,
+  "probe_new_targets": 48,
+  "wait_unlimited": true,
+  "tcp_rotate_source": true,
+  "tcp_neighbor_candidates": true,
+  "tcp_connect_timeout": 4,
+  "protected_search": false,
+  "bifrost_coexist": false,
+  "raw_tcp_experiment": false,
+  "tcp_udp_assist": false,
+  "tcp_mapping_retry": false,
+  "tcp_simultaneous_enabled": false,
+  "efficient_search": true,
+  "restore_v105_budget": true,
+  "unlimited_search": true,
+  "control_reply_timeout": 15,
+  "control_preflight": true,
+  "control_transports": [
+    "tail",
+    "system",
+    "physical"
+  ],
+  "control_preflight_timeout": 4,
+  "control_udp_experimental": false,
+  "control_tail_host": "",
+  "control_stall_timeout": 60,
+  "room_udp_port": 39812,
+  "live_egress_discovery": true,
+  "multi_exit_search": true,
+  "coordinated_scan_v2": true,
+  "egress_stun_servers": [
+    [
+      "stun.cloudflare.com",
+      3478
+    ],
+    [
+      "global.stun.twilio.com",
+      3478
+    ]
+  ],
+  "peer_sync_overlay": true,
+  "peer_sync_port": 39613,
+  "preflight_exchange": true,
+  "verified_peer_lease_seconds": 90,
+  "new_combinations_per_second": null,
+  "mesh_window_seconds": 120
+}

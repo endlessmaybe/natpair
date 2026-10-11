@@ -1,0 +1,8 @@
+{
+  "listen_host": "0.0.0.0",
+  "lab_udp_base": 39801,
+  "lab_control_port": 39810,
+  "room_udp_port": 39812,
+  "mesh_window_seconds": 120,
+  "access": "0000000000000000000000000000000000000000000000000000000000000000"
+}
