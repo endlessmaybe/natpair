@@ -1,8 +1,22 @@
-# NATPair
+# NATPair Mesh — UDP 打洞、Tailscale 直连与 Minecraft Java 联机
 
-**当前版本：NATPair Mesh 1.2.0。** 这是 Windows 上的多人 UDP 打洞与 Tailscale 辅助直连工具，支持全员互连，以及专门给 Minecraft Java 使用的房主星形房间。
+简体中文 · [English](README.en.md)
+
+**NATPair Mesh 1.2.0** 是 Windows 上的多人 **UDP 打洞 / NAT 穿透（内网穿透）**辅助工具，配合 **Tailscale** 支持最多 8 人互连，以及 **Minecraft Java 局域网联机**的房主星形房间。需要自己的协调服务配置，不保证所有 NAT 或运营商网络都能直连。
+
+**UDP hole punching and NAT traversal helper for Tailscale and Minecraft Java LAN multiplayer on Windows.** Up to 8 peers, mesh or host-star rooms, with self-hosted coordination. See the [English guide](README.en.md).
 
 **[下载 Windows 完整包](https://github.com/endlessmaybe/natpair/releases/latest) · [使用说明](docs/USER_GUIDE.md) · [当前功能与优点](docs/FEATURES.md) · [协调服务部署](docs/SERVER_SETUP.md)**
+
+## 适合哪些场景
+
+| 你想做什么 | 使用方式 |
+| --- | --- |
+| Minecraft Java 远程联机，让朋友加入房主的局域网世界 | MC 星形房间：一名房主、最多七名玩家，自动公布房主 Tailscale 游戏地址与实际端口 |
+| 尝试改善 Tailscale 节点之间的直连 | 多人辅助 UDP 打洞；保留已经验证的原生 IPv6 / IPv4 路径，分别展示 UDP 与 Tailscale 数据验证结果 |
+| 研究或排查 NAT 穿透 | 仅 UDP 模式观察打洞过程与证据，不创建独立 VPN 或游戏转发服务 |
+
+普通使用者下载完整 Windows 包，无需另装 Python；Tailscale 接入模式需要自行安装、登录并授权 Tailscale。所有模式都需要有效的协调服务配置，公开 ZIP 中只有模板。
 
 ## 网络与使用提醒
 
@@ -67,6 +81,24 @@
 5. 看成员表的真实验证状态；MC 玩家复制 `100.x.x.x:游戏端口` 到游戏中连接。
 
 Minecraft“开放到局域网”使用当次游戏显示的端口。软件不会替你启动 Minecraft 或自动开放任意游戏服务端口。
+
+## 常见问题：内网穿透与游戏直连
+
+### 没有公网 IPv4 能用吗？
+
+NATPair 尝试在 NAT 后建立辅助 IPv4 UDP 通道，但是否成功取决于双方映射、网络与运营商策略。已有可用的 Tailscale 原生 IPv6 / IPv4 直连会保留；它不承诺所有对称 NAT、移动网络或 CGNAT 环境都能穿透。
+
+### 可以用于 Minecraft Java 局域网联机吗？
+
+可以使用 MC 星形房间：房主运行世界或服务端，玩家通过公布的 Tailscale 地址和实际游戏端口连接。8 人时只处理 7 条房主辅助关系；房主需要保持游戏、Tailscale 和 NATPair 在线。完整操作见 [MC 房间使用说明](docs/USER_GUIDE.md#3-minecraft-java-星形房间)。
+
+### 可以代替 Tailscale，或独立进行 TCP 打洞吗？
+
+游戏接入依赖 Tailscale，MC 的 TCP 流量由 Tailscale UDP 隧道承载。仅 UDP 模式用于观察和验证，不是独立 VPN；项目没有独立公网 TCP 打洞，也不提供公共游戏中继服务。
+
+### 下载后能直接加入公共服务器吗？
+
+公开包不附私人服务或接入密钥。请向自己的协调服务管理员取得配置，或按 [部署说明](docs/SERVER_SETUP.md) 自建。房间码用于加入房间，不能代替服务配置与 Tailscale 授权。
 
 ## 当前边界
 
